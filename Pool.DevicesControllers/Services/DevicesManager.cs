@@ -17,17 +17,17 @@ internal sealed class DevicesManager : IDevicesManager
 		_controllerManagers = controllerManagers;
 	}
 
-	public async Task<IReadOnlyCollection<DeviceInfo>> GetDevicesAsync(string poolAlias,
+	public async Task<IReadOnlyCollection<DeviceIndicator>> GetDevicesAsync(string poolAlias,
 		CancellationToken cancellationToken)
 	{
 		var pool = _poolsSettings.Value.Pools.SingleOrDefault(x =>
 			x.Alias.Equals(poolAlias, StringComparison.OrdinalIgnoreCase));
 		if (pool is null)
 		{
-			return Array.Empty<DeviceInfo>();
+			return Array.Empty<DeviceIndicator>();
 		}
 
-		var devices = new List<DeviceInfo>();
+		var devices = new List<DeviceIndicator>();
 		foreach (var controller in pool.Controllers)
 		{
 			var controllerManager = _controllerManagers.Single(x => x.CanHandle(controller.Type));
@@ -36,7 +36,7 @@ internal sealed class DevicesManager : IDevicesManager
 				.Select(x => x.Type);
 
 			var currentValues = await controllerManager.GetDevicesCurrentValuesAsync(types, cancellationToken);
-			devices.AddRange(currentValues.Select(currentValue => new DeviceInfo(pool.Alias, controller.Code)
+			devices.AddRange(currentValues.Select(currentValue => new DeviceIndicator(pool.Alias, controller.Code)
 			{
 				CurrentValue = currentValue
 			}));

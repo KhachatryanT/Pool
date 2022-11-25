@@ -1,8 +1,11 @@
 ﻿namespace Pool.DevicesControllers.Abstractions.Models;
 
-public class DeviceInfo
+/// <summary>
+/// Показатели устройства
+/// </summary>
+public class DeviceIndicator
 {
-	public DeviceInfo(string poolAlias, string controllerCode)
+	public DeviceIndicator(string poolAlias, string controllerCode)
 	{
 		PoolAlias = poolAlias;
 		ControllerCode = controllerCode;

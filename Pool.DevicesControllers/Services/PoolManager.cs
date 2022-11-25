@@ -1,4 +1,5 @@
 ﻿using Microsoft.Extensions.Options;
+using Pool.DevicesControllers.Abstractions.Models;
 using Pool.DevicesControllers.Abstractions.Services;
 using Pool.DevicesControllers.Settings;
 
@@ -19,5 +20,12 @@ internal sealed class PoolManager : IPoolManager
 		             _poolsSettings.Value.Pools.Any(x =>
 			             x.Alias.Equals(poolAlias, StringComparison.OrdinalIgnoreCase));
 		return Task.FromResult(result);
+	}
+
+#pragma warning disable CS1998
+	public async Task<IReadOnlyCollection<PoolInfo>> GetPoolsAsync(CancellationToken calCancellationToken)
+#pragma warning restore CS1998
+	{
+		return _poolsSettings.Value.Pools.Select(x => new PoolInfo(x.Name, x.Alias)).ToArray();
 	}
 }

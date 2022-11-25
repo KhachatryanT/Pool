@@ -10,5 +10,5 @@ public interface IDevicesManager
 	/// <param name="poolAlias"></param>
 	/// <param name="cancellationToken"></param>
 	/// <returns></returns>
-	Task<IReadOnlyCollection<DeviceInfo>> GetDevicesAsync(string poolAlias, CancellationToken cancellationToken);
+	Task<IReadOnlyCollection<DeviceIndicator>> GetDevicesAsync(string poolAlias, CancellationToken cancellationToken);
 }

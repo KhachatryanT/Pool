@@ -4,10 +4,10 @@ namespace Pool.CQRS.Queries.GetSensors;
 
 public sealed class GetSensorsQueryResult
 {
-	public GetSensorsQueryResult(IReadOnlyCollection<DeviceInfo> devices)
+	public GetSensorsQueryResult(IReadOnlyCollection<DeviceIndicator> devices)
 	{
 		Devices = devices;
 	}
 
-	public IReadOnlyCollection<DeviceInfo> Devices { get; }
+	public IReadOnlyCollection<DeviceIndicator> Devices { get; }
 }

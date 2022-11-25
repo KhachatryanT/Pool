@@ -5,6 +5,7 @@ namespace Pool.DevicesControllers.Settings;
 
 internal sealed class PoolConfigurationSettings
 {
+	public string? Name { get; init; }
 	/// <summary>
 	/// Псевдоним бассейна
 	/// </summary>
