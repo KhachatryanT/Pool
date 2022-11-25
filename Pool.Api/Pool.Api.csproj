@@ -1,0 +1,28 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+    <PropertyGroup>
+        <TargetFramework>net6.0</TargetFramework>
+        <Nullable>enable</Nullable>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <UserSecretsId>aspnet-SP.Api-71FF4C4D-F21A-49A3-B174-E16958E54E7D</UserSecretsId>
+        <DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\Pool.DevicesController.Crystal\Pool.DevicesController.Crystal.csproj" />
+      <ProjectReference Include="..\Pool.DevicesController.Fake\Pool.DevicesController.Fake.csproj" />
+      <ProjectReference Include="..\Pool.DevicesController.Navigator\Pool.DevicesController.Navigator.csproj" />
+      <ProjectReference Include="..\Pool.DAL\Pool.DAL.csproj" />
+      <ProjectReference Include="..\Pool.DevicesControllers\Pool.DevicesControllers.csproj" />
+      <ProjectReference Include="..\Pool.CQRS\Pool.CQRS.csproj" />
+    </ItemGroup>
+    
+    <ItemGroup>
+      <Folder Include="wwwroot" />
+    </ItemGroup>
+    
+    <ItemGroup>
+      <PackageReference Include="Swashbuckle.AspNetCore" Version="6.4.0" />
+    </ItemGroup>
+
+</Project>
