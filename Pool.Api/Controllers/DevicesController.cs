@@ -18,7 +18,6 @@ public class DevicesController : Controller
 	/// Получить показатели всех устройств(датчиков) бассейна
 	/// </summary>
 	/// <param name="poolAlias"></param>
-	/// <returns></returns>
 	[HttpGet("{poolAlias}")]
 	public Task<GetSensorsQueryResult> GetDevices([FromRoute] string poolAlias)
 		=> _sender.Send(new GetSensorsQuery(poolAlias));

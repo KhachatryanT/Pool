@@ -1,25 +1,23 @@
-﻿using MediatR;
-using Microsoft.AspNetCore.Mvc;
-using Pool.CQRS.Queries.GetPools;
+﻿using Microsoft.AspNetCore.Mvc;
+using Pool.DevicesControllers.Abstractions.Models;
+using Pool.DevicesControllers.Abstractions.Services;
 
 namespace Pool.Api.Controllers;
 
 [Route("[controller]")]
 public class PoolController : Controller
 {
-	private readonly ISender _sender;
+	private readonly IPoolManager _poolManager;
 
-	public PoolController(ISender sender)
+	public PoolController(IPoolManager poolManager)
 	{
-		_sender = sender;
+		_poolManager = poolManager;
 	}
 
 	/// <summary>
 	/// Получить все бассейны
 	/// </summary>
-	/// <returns></returns>
-	/// <exception cref="NotImplementedException"></exception>
 	[HttpGet]
-	public Task<GetPoolsQueryResult> GetPools()
-		=> _sender.Send(new GetPoolsQuery());
+	public Task<IReadOnlyCollection<PoolInfo>> GetPools()
+		=> _poolManager.GetPoolsAsync(Request.HttpContext.RequestAborted);
 }

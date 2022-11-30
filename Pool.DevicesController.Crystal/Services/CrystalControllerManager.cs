@@ -1,5 +1,6 @@
 ﻿using Pool.DevicesControllers.Abstractions.Models;
 using Pool.DevicesControllers.Abstractions.Services;
+using Pool.Domain.Enums;
 
 namespace Pool.DevicesController.Crystal.Services;
 

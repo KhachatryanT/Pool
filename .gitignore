@@ -126,6 +126,7 @@ $tf/
 _ReSharper*/
 *.[Rr]e[Ss]harper
 *.DotSettings.user
+*.DotSettings
 
 # Rider
 .idea
@@ -258,6 +259,9 @@ ServiceFabricBackup/
 *.mdf
 *.ldf
 *.ndf
+
+# SQLite database
+Pool.Api/Database/*
 
 # Business Intelligence projects
 *.rdl.data

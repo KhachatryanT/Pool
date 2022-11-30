@@ -1,4 +1,4 @@
-﻿namespace Pool.DevicesControllers.Abstractions.Models;
+﻿namespace Pool.Domain.Enums;
 
 public enum DeviceType
 {

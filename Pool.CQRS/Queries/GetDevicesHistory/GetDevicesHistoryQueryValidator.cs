@@ -3,12 +3,12 @@ using JetBrains.Annotations;
 using Pool.CQRS.CommonValidators;
 using Pool.DevicesControllers.Abstractions.Services;
 
-namespace Pool.CQRS.Queries.GetSensors;
+namespace Pool.CQRS.Queries.GetDevicesHistory;
 
 [UsedImplicitly]
-public sealed class GetSensorsQueryValidator : AbstractValidator<GetSensorsQuery>
+public sealed class GetDevicesHistoryQueryValidator : AbstractValidator<GetDevicesHistoryQuery>
 {
-	public GetSensorsQueryValidator(IPoolManager poolManager)
+	public GetDevicesHistoryQueryValidator(IPoolManager poolManager)
 	{
 		ClassLevelCascadeMode = CascadeMode.Stop;
 			
@@ -18,5 +18,9 @@ public sealed class GetSensorsQueryValidator : AbstractValidator<GetSensorsQuery
 
 		RuleFor(query => query.PoolAlias)
 			.SetValidator(new IsPoolExistsValidator(poolManager));
+
+		RuleFor(query => query)
+			.Must(query => query.EndDate >= query.StartDate)
+			.WithMessage("Дата окончания не может быть меньше даты начала");
 	}
 }

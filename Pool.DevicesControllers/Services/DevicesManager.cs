@@ -36,10 +36,11 @@ internal sealed class DevicesManager : IDevicesManager
 				.Select(x => x.Type);
 
 			var currentValues = await controllerManager.GetDevicesCurrentValuesAsync(types, cancellationToken);
-			devices.AddRange(currentValues.Select(currentValue => new DeviceIndicator(pool.Alias, controller.Code)
-			{
-				CurrentValue = currentValue
-			}));
+			devices.AddRange(currentValues.Select(currentValue => new DeviceIndicator(pool.Alias,
+				controller.Code,
+				currentValue.Type,
+				currentValue.Date,
+				currentValue.Value)));
 		}
 
 		return devices;

@@ -1,5 +1,5 @@
 ﻿using JetBrains.Annotations;
-using Pool.DevicesControllers.Abstractions.Models;
+using Pool.Domain.Enums;
 
 namespace Pool.DevicesControllers.Settings;
 
