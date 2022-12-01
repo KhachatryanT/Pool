@@ -12,5 +12,8 @@ internal sealed class DeviceMonitoringEntityConfiguration : IEntityTypeConfigura
 			.HasConversion(
 				d => d.ToUniversalTime().ToString("u"),
 				s => DateTimeOffset.Parse(s));
+		
+		builder.Property(e => e.Type)
+			.HasConversion<string>();
 	}
 }

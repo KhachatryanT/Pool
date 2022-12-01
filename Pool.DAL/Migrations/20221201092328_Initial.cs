@@ -17,7 +17,7 @@ namespace Pool.DAL.Migrations
                     PoolAlias = table.Column<string>(type: "TEXT", nullable: false),
                     ControllerCode = table.Column<string>(type: "TEXT", nullable: false),
                     Date = table.Column<string>(type: "TEXT", nullable: false),
-                    Type = table.Column<int>(type: "INTEGER", nullable: false),
+                    Type = table.Column<string>(type: "TEXT", nullable: false),
                     Value = table.Column<double>(type: "REAL", nullable: false)
                 },
                 constraints: table =>

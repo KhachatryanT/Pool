@@ -10,7 +10,7 @@ using Pool.DAL;
 namespace Pool.DAL.Migrations
 {
     [DbContext(typeof(PoolContext))]
-    [Migration("20221129193636_Initial")]
+    [Migration("20221201092328_Initial")]
     partial class Initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -36,8 +36,9 @@ namespace Pool.DAL.Migrations
                         .IsRequired()
                         .HasColumnType("TEXT");
 
-                    b.Property<int>("Type")
-                        .HasColumnType("INTEGER");
+                    b.Property<string>("Type")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
 
                     b.Property<double>("Value")
                         .HasColumnType("REAL");
