@@ -8,6 +8,8 @@
         <SpaProxyServerUrl>https://localhost:44432</SpaProxyServerUrl>
         <SpaProxyLaunchCommand>npm start</SpaProxyLaunchCommand>
         <ImplicitUsings>enable</ImplicitUsings>
+        <ErrorOnDuplicatePublishOutputFiles>false</ErrorOnDuplicatePublishOutputFiles>
+        <ValidateExecutableReferencesMatchSelfContained>false</ValidateExecutableReferencesMatchSelfContained>
     </PropertyGroup>
 
     <ItemGroup>
@@ -22,12 +24,30 @@
     </ItemGroup>
 
     <ItemGroup>
-      <ProjectReference Include="..\Pool.Api\Pool.Api.csproj" />
+        <ProjectReference Include="..\Pool.Api\Pool.Api.csproj" />
     </ItemGroup>
 
     <ItemGroup>
-      <Folder Include="Database" />
+        <Folder Include="Database" />
     </ItemGroup>
+    
+    <Target Name="CreateDatabaseFolder" AfterTargets="AfterPublish">
+        <Message Importance="high" Text="Creating Database folder" />
+        <MakeDir Directories="$(PublishUrl)Database" Condition="!Exists('$(PublishUrl)Database')" />
+    </Target>
+    
+    <Target Name="DeleteDebugSymbolFiles" AfterTargets="AfterPublish">
+        <ItemGroup>
+            <FilesToDelete Include="$(PublishUrl)*.pdb"/>
+        </ItemGroup>
+        <Message Importance="high" Text="Deleting Debug Symbols Files @(FilesToDelete)"/>
+        <Delete Files="@(FilesToDelete)">
+            <Output
+                    TaskParameter="DeletedFiles"
+                    ItemName="FilesDeleted"/>
+        </Delete>
+        <Message Importance="high" Text="Files deleted: @(FilesDeleted)"/>
+    </Target>
 
     <Target Name="DebugEnsureNodeEnv" BeforeTargets="Build" Condition=" '$(Configuration)' == 'Debug' And !Exists('$(SpaRoot)node_modules') ">
         <!-- Ensure Node.js is installed -->

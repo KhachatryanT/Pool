@@ -21,6 +21,10 @@
       <Folder Include="Database" />
       <Folder Include="wwwroot" />
     </ItemGroup>
+
+    <Target Name="CreateDatabaseFolder" AfterTargets="AfterPublish">
+        <MakeDir Directories="$(PublishUrl)Database" Condition="!Exists('$(PublishUrl)Database')" />
+    </Target>
     
     <ItemGroup>
       <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="6.0.11">
