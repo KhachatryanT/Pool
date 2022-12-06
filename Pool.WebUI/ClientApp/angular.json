@@ -72,8 +72,7 @@
               "browserTarget": "Pool.WebUI:build:production"
             },
             "development": {
-              "browserTarget": "Pool.WebUI:build:development",
-              "proxyConfig": "proxy.conf.js"
+              "browserTarget": "Pool.WebUI:build:development"
             }
           },
           "defaultConfiguration": "development"
