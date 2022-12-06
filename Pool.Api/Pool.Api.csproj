@@ -16,15 +16,10 @@
       <ProjectReference Include="..\Pool.DevicesControllers\Pool.DevicesControllers.csproj" />
       <ProjectReference Include="..\Pool.CQRS\Pool.CQRS.csproj" />
     </ItemGroup>
-    
-    <ItemGroup>
-      <Folder Include="Database" />
-      <Folder Include="wwwroot" />
-    </ItemGroup>
 
-    <Target Name="CreateDatabaseFolder" AfterTargets="AfterPublish">
-        <MakeDir Directories="$(PublishUrl)Database" Condition="!Exists('$(PublishUrl)Database')" />
-    </Target>
+    <ItemGroup>
+        <Folder Include="wwwroot" />
+    </ItemGroup>
     
     <ItemGroup>
       <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="6.0.11">
@@ -34,6 +29,12 @@
       <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="6.0.11" />
       <PackageReference Include="Quartz.Extensions.Hosting" Version="3.5.0" />
       <PackageReference Include="Swashbuckle.AspNetCore" Version="6.4.0" />
+    </ItemGroup>
+    
+    <ItemGroup>
+      <None Update="Database\Readme.txt">
+        <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      </None>
     </ItemGroup>
 
 </Project>
