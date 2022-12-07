@@ -6,4 +6,22 @@
   backdrop-filter: blur(50px);
   height: 100vh;
   overflow: hidden;
+  padding: 20px;
+}
+
+.dashboard {
+  display: flex;
+  flex: 1 1 auto;
+  &__navigation {
+
+  }
+
+  &__data {
+
+  }
+}
+
+.dashboard-devices {
+  display: grid;
+  
 }

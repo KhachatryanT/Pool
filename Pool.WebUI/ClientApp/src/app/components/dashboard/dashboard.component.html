@@ -1,1 +1,11 @@
-<p>dashboard works!</p>
+<div class="dashboard">
+  <div class="dashboard__navigation"></div>
+  <div class="dashboard__data">
+    <div class="dashboard-devices">
+      <app-device-card
+        *ngFor="let device of devices"
+        [device]="device"
+      ></app-device-card>
+    </div>
+  </div>
+</div>

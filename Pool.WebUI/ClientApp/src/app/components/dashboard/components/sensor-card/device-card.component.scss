@@ -1,0 +1,33 @@
+@import "helpers";
+@import "mixins";
+
+:host {
+  @include wrapper();
+  height: 210px;
+  width: 190px;
+  padding: 36px 20px;
+}
+
+.device-card {
+  display: flex;
+  flex-direction: column;
+
+
+  &__name {
+    @include font-40(regular, $font-rubik);
+    color: $color-grey-light;
+  }
+
+  &__value {
+    @include font-64(regular, $font-rubik);
+    margin-top: 20px;
+
+    &_blue {
+      color: $color-blue-light;
+    }
+
+    &_red {
+      color: $color-red-light;
+    }
+  }
+}

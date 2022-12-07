@@ -1,0 +1,7 @@
+@mixin wrapper() {
+  display: flex;
+  border-radius: 20px;
+  background: rgba($color-dark-blue, 0.6);
+  height: 210px;
+  width: 190px;
+}
