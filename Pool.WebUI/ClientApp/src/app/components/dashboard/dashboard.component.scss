@@ -1,0 +1,9 @@
+@import "helpers";
+
+:host {
+  display: flex;
+  background: $color-main;
+  backdrop-filter: blur(50px);
+  height: 100vh;
+  overflow: hidden;
+}

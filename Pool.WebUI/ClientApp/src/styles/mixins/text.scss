@@ -1,0 +1,96 @@
+@use "sass:math";
+@import "variables/variables";
+
+$font-thicknesses: (
+  black: 900,
+  extra-bold: 800,
+  bold: 700,
+  semibold: 600,
+  medium: 500,
+  regular: 400,
+  light: 300,
+  thin: 200
+);
+
+
+
+@mixin font-64($font-weight, $font-family: $font-montserrat) {
+  font-size: 64px;
+  line-height: math.div(76, 64);
+  font-family: $font-family;
+
+  @include font-weight-by-map($font-weight);
+}
+
+@mixin font-54($font-weight, $font-family: $font-montserrat) {
+  font-size: 54px;
+  line-height: math.div(64, 54);
+  font-family: $font-family;
+
+  @include font-weight-by-map($font-weight);
+}
+
+@mixin font-40($font-weight, $font-family: $font-montserrat) {
+  font-size: 40px;
+  line-height: math.div(47, 40);
+  font-family: $font-family;
+
+  @include font-weight-by-map($font-weight);
+}
+
+@mixin font-36($font-weight, $font-family: $font-montserrat) {
+  font-size: 36px;
+  line-height: math.div(44, 36);
+  font-family: $font-family;
+
+  @include font-weight-by-map($font-weight);
+}
+
+@mixin font-24($font-weight, $font-family: $font-montserrat) {
+  font-size: 24px;
+  line-height: math.div(28, 24);
+  font-family: $font-family;
+
+  @include font-weight-by-map($font-weight);
+}
+
+@mixin font-20($font-weight, $font-family: $font-montserrat) {
+  font-size: 20px;
+  line-height: math.div(24, 20);
+  font-family: $font-family;
+
+  @include font-weight-by-map($font-weight);
+}
+
+@mixin font-18($font-weight, $font-family: $font-montserrat) {
+  font-size: 18px;
+  line-height: math.div(22, 18);
+  font-family: $font-family;
+
+  @include font-weight-by-map($font-weight);
+}
+
+@mixin font-16($font-weight, $font-family: $font-montserrat) {
+  font-size: 16px;
+  line-height: math.div(19, 16);
+  font-family: $font-family;
+
+  @include font-weight-by-map($font-weight);
+}
+
+@mixin font-14($font-weight, $font-family: $font-montserrat) {
+  font-size: 14px;
+  line-height: math.div(18, 14);
+  font-family: $font-family;
+
+  @include font-weight-by-map($font-weight);
+}
+
+@mixin font-weight-by-map($font-weight) {
+  @if map-has-key($font-thicknesses, $font-weight) {
+    font-weight: map-get($font-thicknesses, $font-weight);
+  } @else {
+    @error "No value could be retrieved from `#{$font-weight}`. "
+        + "Please make sure it is defined in `$font-thicknesses` map.";
+  }
+}
