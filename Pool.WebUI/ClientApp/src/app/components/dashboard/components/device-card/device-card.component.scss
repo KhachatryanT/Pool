@@ -6,16 +6,27 @@
   height: 210px;
   width: 190px;
   padding: 36px 20px;
+  overflow: hidden;
 }
 
 .device-card {
   display: flex;
   flex-direction: column;
 
+  &__name-wrapper {
+    display: flex;
+    align-items: flex-end;
+  }
 
   &__name {
     @include font-40(regular, $font-rubik);
     color: $color-grey-light;
+  }
+
+  &__unit {
+    @include font-25(regular, $font-rubik);
+    color: $color-grey-light;
+    margin-left: 5px;
   }
 
   &__value {

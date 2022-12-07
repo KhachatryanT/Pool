@@ -1,0 +1,14 @@
+<div class="device-card">
+  <div class="device-card__name-wrapper">
+    <p class="device-card__name">{{ name }}</p>
+    <p class="device-card__unit" [innerHTML]="unit"></p>
+  </div>
+
+  <p
+    class="device-card__value"
+    [class.device-card__value_blue]="isBlueValue"
+    [class.device-card__value_red]="!isBlueValue"
+  >
+    {{ value | dotToComma }}
+  </p>
+</div>

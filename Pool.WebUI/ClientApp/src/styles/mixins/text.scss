@@ -46,6 +46,14 @@ $font-thicknesses: (
   @include font-weight-by-map($font-weight);
 }
 
+@mixin font-25($font-weight, $font-family: $font-montserrat) {
+  font-size: 25px;
+  line-height: math.div(29, 25);
+  font-family: $font-family;
+
+  @include font-weight-by-map($font-weight);
+}
+
 @mixin font-24($font-weight, $font-family: $font-montserrat) {
   font-size: 24px;
   line-height: math.div(28, 24);

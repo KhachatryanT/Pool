@@ -2,26 +2,29 @@
 
 :host {
   display: flex;
-  background: $color-main;
+  background: $background-gradient;
   backdrop-filter: blur(50px);
   height: 100vh;
   overflow: hidden;
-  padding: 20px;
+  padding: 24px;
 }
 
 .dashboard {
   display: flex;
   flex: 1 1 auto;
-  &__navigation {
 
+  &__navigation {
+    width: 50%;
   }
 
   &__data {
-
   }
 }
 
 .dashboard-devices {
   display: grid;
-  
+  grid-row-gap: 12px;
+  grid-column-gap: 12px;
+  grid-template-columns: repeat(2, 1fr);
+
 }
