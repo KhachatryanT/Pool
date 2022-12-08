@@ -15,13 +15,14 @@ namespace Pool.Api;
 public static class ImportModule
 {
 	private const string BasePath = "/api";
-	
+
 	public static IServiceCollection AddApi(this IServiceCollection services, IConfiguration configuration)
 	{
 		services.AddControllers()
 			.AddJsonOptions(options =>
 			{
-				options.JsonSerializerOptions.Converters.Add(new JsonStringEnumConverter(JsonNamingPolicy.CamelCase));
+				options.JsonSerializerOptions.Converters.Add(
+					new JsonStringEnumConverter(JsonNamingPolicy.CamelCase));
 			});
 		services.AddSwaggerGen();
 
@@ -31,10 +32,13 @@ public static class ImportModule
 		//services.AddCrystalDevicesController();
 		services.AddFakeDevicesController();
 
-		services.AddDbContext<PoolContext>(options=>
+		services.AddDbContext<PoolContext>(options =>
 		{
+			var connection = configuration.GetConnectionString("Pool")
+				.Replace('\\', Path.DirectorySeparatorChar)
+				.Replace('/', Path.DirectorySeparatorChar);
 			options.UseQueryTrackingBehavior(QueryTrackingBehavior.NoTracking);
-			options.UseSqlite(configuration.GetConnectionString("Pool"));
+			options.UseSqlite(connection);
 		});
 
 		services.AddQuartz(q =>
@@ -45,7 +49,7 @@ public static class ImportModule
 		services.AddQuartzHostedService();
 		return services;
 	}
-	
+
 	public static async Task ConfigureApiAsync(this WebApplication app)
 	{
 		app.UsePathBase(BasePath);
@@ -54,10 +58,7 @@ public static class ImportModule
 		if (app.Environment.IsDevelopment())
 		{
 			app.UseSwagger();
-			app.UseSwaggerUI(options =>
-			{
-				options.SwaggerEndpoint($"{BasePath}/swagger/v1/swagger.json","v1");
-			});
+			app.UseSwaggerUI(options => { options.SwaggerEndpoint($"{BasePath}/swagger/v1/swagger.json", "v1"); });
 		}
 
 		app.UseRouting();
