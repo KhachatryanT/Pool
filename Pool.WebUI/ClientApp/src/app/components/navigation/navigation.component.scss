@@ -1,0 +1,21 @@
+@import "helpers";
+
+:host {
+  width: 307px;
+  height: 307px;
+  border-radius: 50%;
+  background: rgba($color-white, 0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.navigation {
+  position: relative;
+  &__datetime {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+}

@@ -3,11 +3,12 @@ import { CommonModule } from '@angular/common';
 import { DeviceCardComponent } from './components/device-card/device-card.component';
 import { Device } from '../../interfaces/device.interface';
 import { DeviceTypeEnum } from '../../enums/device-type.enum';
+import { NavigationComponent } from '../navigation/navigation.component';
 
 @Component({
   selector: 'app-dashboard',
   standalone: true,
-  imports: [CommonModule, DeviceCardComponent],
+  imports: [CommonModule, DeviceCardComponent, NavigationComponent],
   templateUrl: './dashboard.component.html',
   styleUrls: ['./dashboard.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,

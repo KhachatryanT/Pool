@@ -21,6 +21,14 @@
   }
 }
 
+.dashboard-navigation {
+  display: flex;
+  &__navigation {
+    margin-top: auto;
+
+  }
+}
+
 .dashboard-devices {
   display: grid;
   grid-row-gap: 12px;
