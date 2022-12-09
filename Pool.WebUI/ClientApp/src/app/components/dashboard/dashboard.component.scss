@@ -12,6 +12,7 @@
 .dashboard {
   display: flex;
   flex: 1 1 auto;
+  justify-content: space-between;
 
   &__navigation {
     width: 50%;
@@ -23,16 +24,11 @@
 
 .dashboard-navigation {
   display: flex;
+  align-items: center;
+  position: relative;
+  left: -70px;
+
   &__navigation {
-    margin-top: auto;
 
   }
-}
-
-.dashboard-devices {
-  display: grid;
-  grid-row-gap: 12px;
-  grid-column-gap: 12px;
-  grid-template-columns: repeat(2, 1fr);
-
 }

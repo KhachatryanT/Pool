@@ -1,8 +1,8 @@
 import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { Device } from '../../../../interfaces/device.interface';
-import { DeviceType, DeviceTypeEnum } from '../../../../enums/device-type.enum';
-import { DotToCommaPipe } from '../../../../pipes/dot-to-comma.pipe';
+import { Device } from '../../../interfaces/devices/device.interface';
+import { DeviceType, DeviceTypeEnum } from '../../../enums/device-type.enum';
+import { DotToCommaPipe } from '../../../pipes/dot-to-comma.pipe';
 
 @Component({
   selector: 'app-device-card',
@@ -29,7 +29,7 @@ export class DeviceCardComponent {
 
   private getDeviceUnit(device: Device): string {
     switch (device.type) {
-      case DeviceTypeEnum.CI: {
+      case DeviceTypeEnum.CL: {
         return ', мг/л';
       }
       case DeviceTypeEnum.RX: {

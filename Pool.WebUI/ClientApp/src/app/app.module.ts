@@ -6,6 +6,9 @@ import { AppRoutingModule } from './app-routing.module';
 
 import { registerLocaleData } from '@angular/common';
 import localeRu from '@angular/common/locales/ru';
+import { HttpClientModule } from '@angular/common/http';
+import { CoreModule } from './core/core.module';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 
 registerLocaleData(localeRu, 'ru');
 
@@ -14,6 +17,9 @@ registerLocaleData(localeRu, 'ru');
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
     AppRoutingModule,
+    HttpClientModule,
+    CoreModule,
+    MatProgressSpinnerModule,
   ],
   providers: [{ provide: LOCALE_ID, useValue: 'ru' }],
   bootstrap: [AppComponent],

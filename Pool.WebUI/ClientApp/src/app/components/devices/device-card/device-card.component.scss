@@ -1,5 +1,5 @@
-@import "helpers";
-@import "mixins";
+@import "src/styles/helpers";
+@import "src/styles/mixins";
 
 :host {
   @include wrapper();

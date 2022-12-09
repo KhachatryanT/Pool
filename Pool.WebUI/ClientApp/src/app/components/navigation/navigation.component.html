@@ -1,5 +1,12 @@
 <div class="navigation">
-  <app-date-time class="navigation__datetime"></app-date-time>
+  <app-navigation-button
+    class="navigation__button"
+    *ngFor="let button of buttons; let index = index"
+    [iconName]="button.iconName"
+    [title]="button.title"
+    [isActive]="button.isActive"
+    [ngStyle]="button.position"
+    (click)="onSelectMenuItem(index)"
+  ></app-navigation-button>
 </div>
-
-
+<app-date-time class="datetime"></app-date-time>

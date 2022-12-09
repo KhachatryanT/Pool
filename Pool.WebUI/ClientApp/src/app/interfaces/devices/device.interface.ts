@@ -1,4 +1,4 @@
-import { DeviceTypeEnum } from '../enums/device-type.enum';
+import { DeviceTypeEnum } from '../../enums/device-type.enum';
 
 export interface Device {
   poolAlias: string;
@@ -6,4 +6,8 @@ export interface Device {
   type: DeviceTypeEnum;
   date: string;
   value: number;
+}
+
+export interface DeviceResponse {
+  devices: Device[];
 }

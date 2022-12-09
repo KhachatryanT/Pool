@@ -1,13 +1,13 @@
 export enum DeviceTypeEnum {
   PH = 'ph',
-  CI = 'ci',
+  CL = 'cl',
   RX = 'rx',
   TEMP = 'temp',
 }
 
 export const DeviceType: Record<DeviceTypeEnum, string> = {
   [DeviceTypeEnum.PH]: 'pH',
-  [DeviceTypeEnum.CI]: 'CI',
+  [DeviceTypeEnum.CL]: 'Cl',
   [DeviceTypeEnum.RX]: 'Rx',
   [DeviceTypeEnum.TEMP]: 't',
 };

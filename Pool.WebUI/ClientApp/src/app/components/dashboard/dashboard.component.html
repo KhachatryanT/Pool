@@ -3,11 +3,6 @@
     <app-navigation class="dashboard-navigation__navigation"></app-navigation>
   </div>
   <div class="dashboard__data">
-    <div class="dashboard-devices">
-      <app-device-card
-        *ngFor="let device of devices"
-        [device]="device"
-      ></app-device-card>
-    </div>
+    <router-outlet></router-outlet>
   </div>
 </div>
