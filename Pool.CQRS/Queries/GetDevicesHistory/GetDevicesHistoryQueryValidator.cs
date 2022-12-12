@@ -8,7 +8,7 @@ namespace Pool.CQRS.Queries.GetDevicesHistory;
 [UsedImplicitly]
 public sealed class GetDevicesHistoryQueryValidator : AbstractValidator<GetDevicesHistoryQuery>
 {
-	public GetDevicesHistoryQueryValidator(IPoolManager poolManager)
+	public GetDevicesHistoryQueryValidator(IPoolService poolService)
 	{
 		ClassLevelCascadeMode = CascadeMode.Stop;
 			
@@ -17,7 +17,7 @@ public sealed class GetDevicesHistoryQueryValidator : AbstractValidator<GetDevic
 			.WithMessage("Псевдоним бассейна не может быть пустым");
 
 		RuleFor(query => query.PoolAlias)
-			.SetValidator(new IsPoolExistsValidator(poolManager));
+			.SetValidator(new IsPoolExistsValidator(poolService));
 
 		RuleFor(query => query)
 			.Must(query => query.EndDate >= query.StartDate)

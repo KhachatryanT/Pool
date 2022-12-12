@@ -4,10 +4,10 @@ using Pool.Domain.Enums;
 
 namespace Pool.DevicesController.Crystal.Services;
 
-internal sealed class CrystalControllerManager : IControllerManager
+internal sealed class CrystalControllerService : IControllerService
 {
 #pragma warning disable CA1822
-	bool IControllerManager.CanHandle(ControllerType type) => type == ControllerType.Crystal;
+	bool IControllerService.CanHandle(ControllerType type) => type == ControllerType.Crystal;
 #pragma warning restore CA1822
 
 	public Task<IReadOnlyCollection<DeviceValue>> GetDevicesCurrentValuesAsync(IEnumerable<DeviceType> types,

@@ -12,7 +12,7 @@ using Quartz;
 
 namespace Pool.Api;
 
-public static class ImportModule
+public static class StartupSetup
 {
 	private const string BasePath = "/api";
 

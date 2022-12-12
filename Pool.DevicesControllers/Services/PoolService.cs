@@ -5,11 +5,11 @@ using Pool.DevicesControllers.Settings;
 
 namespace Pool.DevicesControllers.Services;
 
-internal sealed class PoolManager : IPoolManager
+internal sealed class PoolService : IPoolService
 {
 	private readonly IOptions<PoolsSettings> _poolsSettings;
 
-	public PoolManager(IOptions<PoolsSettings> poolsSettings)
+	public PoolService(IOptions<PoolsSettings> poolsSettings)
 	{
 		_poolsSettings = poolsSettings;
 	}

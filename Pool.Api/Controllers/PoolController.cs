@@ -7,11 +7,11 @@ namespace Pool.Api.Controllers;
 [Route("[controller]")]
 public class PoolController : Controller
 {
-	private readonly IPoolManager _poolManager;
+	private readonly IPoolService _poolService;
 
-	public PoolController(IPoolManager poolManager)
+	public PoolController(IPoolService poolService)
 	{
-		_poolManager = poolManager;
+		_poolService = poolService;
 	}
 
 	/// <summary>
@@ -19,5 +19,5 @@ public class PoolController : Controller
 	/// </summary>
 	[HttpGet]
 	public Task<IReadOnlyCollection<PoolInfo>> GetPools()
-		=> _poolManager.GetPoolsAsync(Request.HttpContext.RequestAborted);
+		=> _poolService.GetPoolsAsync(Request.HttpContext.RequestAborted);
 }

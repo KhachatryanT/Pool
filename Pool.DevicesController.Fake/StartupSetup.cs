@@ -4,11 +4,11 @@ using Pool.DevicesControllers.Abstractions.Services;
 
 namespace Pool.DevicesController.Fake;
 
-public static class ImportModule
+public static class StartupSetup
 {
 	public static IServiceCollection AddFakeDevicesController(this IServiceCollection services)
 	{
-		services.AddSingleton<IControllerManager, FakeControllerManager>();
+		services.AddSingleton<IControllerService, FakeControllerService>();
 		return services;
 	}
 }

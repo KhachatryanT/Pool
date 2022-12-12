@@ -2,7 +2,7 @@
 
 namespace Pool.DevicesControllers.Abstractions.Services;
 
-public interface IPoolManager
+public interface IPoolService
 {
 	/// <summary>
 	/// Существует ли указанный бассей
