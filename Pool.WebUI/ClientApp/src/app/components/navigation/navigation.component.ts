@@ -13,6 +13,7 @@ import { NavigationService } from './services/navigation.service';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class NavigationComponent implements OnInit {
+  buttons$ = this.navigationService.buttons$;
   buttons = this.navigationService.buttons;
 
   constructor(private readonly navigationService: NavigationService) {}

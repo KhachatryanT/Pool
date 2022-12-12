@@ -1,5 +1,10 @@
 @import "helpers";
 
+$deg: 180deg;
+$m: 1;
+
+$offset: 100px;
+
 :host {
   display: flex;
   position: relative;
@@ -7,11 +12,52 @@
   height: 307px;
   border-radius: 50%;
   background: rgba($color-white, 0.2);
+
+    transition: transform 0.4s 0.08s, z-index 0s 0.5s;
+    transform: scale(1);
+    z-index: 5;
+    .navigation__button-wrapper,  .navigation__button {
+      transition: all 0.6s;
+    }
+
+    @for $m from 1 through 5 {
+      .navigation__button-wrapper:nth-child(#{$m}) {
+        transition-delay: $m * 0.02s;
+        transform: rotate(45 + $deg * $m);
+
+        .navigation__button {
+          transition-delay: $m * 0.04s;
+          transform: rotate(-$deg * $m + 720 - 45);
+        }
+      }
+  }
 }
 
 .navigation {
-  &__button {
+  $navigation: &;
+
+
+
+  &__button-wrapper {
     position: absolute;
+    //@include transition-basic();
+    top: -($offset);
+    left: -($offset);
+    transform-origin: $offset $offset;
+    //@for $m from 1 through 5 {
+    //  &:nth-child(#{$m}) {
+    //    transition-delay: $m * 0.02s;
+    //    transform: rotate(45 + $deg * $m);
+    //
+    //    #{$navigation}__button {
+    //      transition-delay: $m * 0.04s;
+    //      transform: rotate(-$deg * $m + 720 - 45);
+    //    }
+    //  }
+    //}
+  }
+
+  &__button {
   }
 }
 
