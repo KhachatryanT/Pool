@@ -1,15 +1,18 @@
-<div class="navigation">
-  <div
-    class="navigation__button-wrapper"
-    *ngFor="let button of buttons$ | async; let index = index"
-  >
-    <app-navigation-button
-      class="navigation__button"
-      [iconName]="button.iconName"
-      [title]="button.title"
-      [isActive]="button.isActive"
-      (click)="onSelectMenuItem(index)"
-    ></app-navigation-button>
-  </div>
-</div>
+<nav class="navigation">
+  <ul class="navigation__menu">
+    <li
+      class="navigation__menu-item"
+      *ngFor="let button of buttons$ | async; let index = index"
+    >
+      <app-navigation-button
+        class="navigation__button"
+        [iconName]="button.iconName"
+        [title]="button.title"
+        [isActive]="button.isActive"
+        [ngStyle]="button.position"
+        (click)="onSelectMenuItem(index)"
+      ></app-navigation-button>
+    </li>
+  </ul>
+</nav>
 <app-date-time class="datetime"></app-date-time>
