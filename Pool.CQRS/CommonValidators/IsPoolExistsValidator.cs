@@ -5,10 +5,10 @@ namespace Pool.CQRS.CommonValidators;
 
 internal sealed class IsPoolExistsValidator : AbstractValidator<string>
 {
-	public IsPoolExistsValidator(IPoolManager poolManager)
+	public IsPoolExistsValidator(IPoolService poolService)
 	{
 		RuleFor(request => request)
-			.MustAsync(poolManager.IsPoolExistsAsync)
+			.MustAsync(poolService.IsPoolExistsAsync)
 			.WithMessage("Не найден бассейн с псевдонимом \"{PropertyValue}\"");
 	}
 }

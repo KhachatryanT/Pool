@@ -8,7 +8,7 @@ namespace Pool.CQRS.Queries.GetSensors;
 [UsedImplicitly]
 public sealed class GetSensorsQueryValidator : AbstractValidator<GetSensorsQuery>
 {
-	public GetSensorsQueryValidator(IPoolManager poolManager)
+	public GetSensorsQueryValidator(IPoolService poolService)
 	{
 		ClassLevelCascadeMode = CascadeMode.Stop;
 			
@@ -17,6 +17,6 @@ public sealed class GetSensorsQueryValidator : AbstractValidator<GetSensorsQuery
 			.WithMessage("Псевдоним бассейна не может быть пустым");
 
 		RuleFor(query => query.PoolAlias)
-			.SetValidator(new IsPoolExistsValidator(poolManager));
+			.SetValidator(new IsPoolExistsValidator(poolService));
 	}
 }

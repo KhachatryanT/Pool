@@ -2,7 +2,7 @@
 
 namespace Pool.DevicesControllers.Abstractions.Services;
 
-public interface IDevicesManager
+public interface IDevicesService
 {
 	/// <summary>
 	/// Получить показатели всех устройств

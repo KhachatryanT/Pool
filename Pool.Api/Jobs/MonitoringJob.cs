@@ -12,28 +12,28 @@ namespace Pool.Api.Jobs;
 internal sealed class MonitoringJob : IJob
 {
 	private readonly ILogger<MonitoringJob> _logger;
-	private readonly IPoolManager _poolManager;
-	private readonly IDevicesManager _devicesManager;
+	private readonly IPoolService _poolService;
+	private readonly IDevicesService _devicesService;
 	private readonly IDeviceHistoryRepository _deviceHistoryRepository;
 
 	public MonitoringJob(ILogger<MonitoringJob> logger,
-		IPoolManager poolManager,
-		IDevicesManager devicesManager,
+		IPoolService poolService,
+		IDevicesService devicesService,
 		IDeviceHistoryRepository deviceHistoryRepository)
 	{
 		_logger = logger;
-		_poolManager = poolManager;
-		_devicesManager = devicesManager;
+		_poolService = poolService;
+		_devicesService = devicesService;
 		_deviceHistoryRepository = deviceHistoryRepository;
 	}
 
 	public async Task Execute(IJobExecutionContext context)
 	{
 		_logger.LogTrace("Получаем показатели");
-		var pools = await _poolManager.GetPoolsAsync(context.CancellationToken);
+		var pools = await _poolService.GetPoolsAsync(context.CancellationToken);
 		foreach (var pool in pools)
 		{
-			var devices = await _devicesManager.GetDevicesAsync(pool.Alias, context.CancellationToken);
+			var devices = await _devicesService.GetDevicesAsync(pool.Alias, context.CancellationToken);
 			await _deviceHistoryRepository.InsertAsync(devices.Select(Map), context.CancellationToken);
 		}
 	}

@@ -6,7 +6,7 @@ using Pool.DevicesControllers.Settings;
 
 namespace Pool.DevicesControllers;
 
-public static class ImportModule
+public static class StartupSetup
 {
 	public static IServiceCollection AddDevicesControllers(this IServiceCollection services, IConfiguration pools)
 	{
@@ -15,8 +15,8 @@ public static class ImportModule
 			.ValidateDataAnnotations()
 			.ValidateOnStart();
 
-		services.AddScoped<IPoolManager, PoolManager>();
-		services.AddScoped<IDevicesManager, DevicesManager>();
+		services.AddScoped<IPoolService, PoolService>();
+		services.AddScoped<IDevicesService, DevicesService>();
 		return services;
 	}
 }

@@ -2,7 +2,7 @@
 using Pool.Domain.Enums;
 namespace Pool.DevicesControllers.Abstractions.Services;
 
-public interface IControllerManager
+public interface IControllerService
 {
 	bool CanHandle(ControllerType type);
 

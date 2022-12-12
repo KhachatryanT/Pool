@@ -5,13 +5,13 @@ using Pool.DevicesControllers.Settings;
 
 namespace Pool.DevicesControllers.Services;
 
-internal sealed class DevicesManager : IDevicesManager
+internal sealed class DevicesService : IDevicesService
 {
 	private readonly IOptions<PoolsSettings> _poolsSettings;
-	private readonly IEnumerable<IControllerManager> _controllerManagers;
+	private readonly IEnumerable<IControllerService> _controllerManagers;
 
-	public DevicesManager(IOptions<PoolsSettings> poolsSettings,
-		IEnumerable<IControllerManager> controllerManagers)
+	public DevicesService(IOptions<PoolsSettings> poolsSettings,
+		IEnumerable<IControllerService> controllerManagers)
 	{
 		_poolsSettings = poolsSettings;
 		_controllerManagers = controllerManagers;

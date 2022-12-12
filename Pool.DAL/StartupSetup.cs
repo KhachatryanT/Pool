@@ -4,7 +4,7 @@ using Pool.Domain.Repositories;
 
 namespace Pool.DAL;
 
-public static class ImportModule
+public static class StartupSetup
 {
 	public static IServiceCollection AddDal(this IServiceCollection services)
 	{

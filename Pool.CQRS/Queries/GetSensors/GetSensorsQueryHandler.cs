@@ -6,16 +6,16 @@ namespace Pool.CQRS.Queries.GetSensors;
 [UsedImplicitly]
 internal sealed class GetSensorsQueryHandler : IQueryHandler<GetSensorsQuery, GetSensorsQueryResult>
 {
-	private readonly IDevicesManager _devicesManager;
+	private readonly IDevicesService _devicesService;
 
-	public GetSensorsQueryHandler(IDevicesManager devicesManager)
+	public GetSensorsQueryHandler(IDevicesService devicesService)
 	{
-		_devicesManager = devicesManager;
+		_devicesService = devicesService;
 	}
 
 	public async Task<GetSensorsQueryResult> Handle(GetSensorsQuery request, CancellationToken cancellationToken)
 	{
-		var devices = await _devicesManager.GetDevicesAsync(request.PoolAlias, cancellationToken);
+		var devices = await _devicesService.GetDevicesAsync(request.PoolAlias, cancellationToken);
 		return new GetSensorsQueryResult(devices);
 	}
 }

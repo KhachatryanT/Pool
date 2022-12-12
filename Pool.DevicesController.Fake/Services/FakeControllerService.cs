@@ -4,9 +4,9 @@ using Pool.Domain.Enums;
 
 namespace Pool.DevicesController.Fake.Services;
 
-internal sealed class FakeControllerManager : IControllerManager
+internal sealed class FakeControllerService : IControllerService
 {
-	bool IControllerManager.CanHandle(ControllerType type) => true;
+	bool IControllerService.CanHandle(ControllerType type) => true;
 
 	public async Task<IReadOnlyCollection<DeviceValue>> GetDevicesCurrentValuesAsync(IEnumerable<DeviceType> types,
 		CancellationToken cancellationToken)
