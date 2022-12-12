@@ -13,12 +13,16 @@
   display: flex;
   flex: 1 1 auto;
   justify-content: space-between;
+  max-height: 600px;
+  max-width: 1024px;
+  margin: 0 auto;
 
   &__navigation {
     width: 50%;
   }
 
   &__data {
+    margin: auto 0;
   }
 }
 
@@ -29,6 +33,5 @@
   left: -70px;
 
   &__navigation {
-
   }
 }
