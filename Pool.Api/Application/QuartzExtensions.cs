@@ -2,7 +2,7 @@
 
 namespace Pool.Api.Application;
 
-internal static class QuartzExtensions
+public static class QuartzExtensions
 {
 	public static void AddJobAndTrigger<T>(
 		this IServiceCollectionQuartzConfigurator quartz,

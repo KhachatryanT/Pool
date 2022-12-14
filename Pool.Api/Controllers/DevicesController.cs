@@ -4,8 +4,8 @@ using Pool.CQRS.Queries.GetSensors;
 
 namespace Pool.Api.Controllers;
 
-[Route("[controller]")]
-public class DevicesController : Controller
+[Route("api/[controller]")]
+public class DevicesController : ControllerBase
 {
 	private readonly ISender _sender;
 

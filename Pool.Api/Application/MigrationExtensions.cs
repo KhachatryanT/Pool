@@ -2,7 +2,7 @@
 
 namespace Pool.Api.Application;
 
-internal static class MigrationExtensions
+public static class MigrationExtensions
 {
 	public static async Task EnsureMigrationAsync<T>(this IApplicationBuilder app)
 		where T : DbContext

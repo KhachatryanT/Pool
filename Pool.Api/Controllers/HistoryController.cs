@@ -4,8 +4,8 @@ using Pool.CQRS.Queries.GetDevicesHistory;
 
 namespace Pool.Api.Controllers;
 
-[Route("[controller]")]
-public class HistoryController : Controller
+[Route("api/[controller]")]
+public class HistoryController : ControllerBase
 {
 	private readonly ISender _sender;
 

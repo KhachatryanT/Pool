@@ -6,7 +6,7 @@ using Pool.Domain.Exceptions;
 
 namespace Pool.Api.Application.Middleware;
 
-internal static class ExceptionHandlingMiddlewareExtension
+public static class ExceptionHandlingMiddlewareExtension
 {
 	public static IApplicationBuilder UsePoolExceptionHandling(this IApplicationBuilder app)
 	{
