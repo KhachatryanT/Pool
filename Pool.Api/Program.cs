@@ -15,12 +15,6 @@ using Quartz;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Set NLog base dir
-var nlogBaseDir = RuntimeInformation.IsOSPlatform(OSPlatform.Windows)
-	? builder.Configuration.GetValue<string>("NLog:WindowsBaseDir")
-	: builder.Configuration.GetValue<string>("NLog:LinuxBaseDir");
-GlobalDiagnosticsContext.Set("basedir", nlogBaseDir);
-
 var logger = LogManager.Setup().LoadConfigurationFromAppSettings().GetCurrentClassLogger();
 logger.Info("Init configure infrastructure services");
 try

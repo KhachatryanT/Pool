@@ -14,21 +14,16 @@ using Pool.DevicesController.Fake;
 using Pool.DevicesControllers;
 using Quartz;
 
+if (!File.Exists(Path.Combine(Directory.GetCurrentDirectory(), "appsettings.json")))
+	Directory.SetCurrentDirectory(AppDomain.CurrentDomain.BaseDirectory);
 
-const string basePath = "/api";
 var builder = WebApplication.CreateBuilder(args);
-
-// Set NLog base dir
-var nlogBaseDir = RuntimeInformation.IsOSPlatform(OSPlatform.Windows)
-	? builder.Configuration.GetValue<string>("NLog:WindowsBaseDir")
-	: builder.Configuration.GetValue<string>("NLog:LinuxBaseDir");
-GlobalDiagnosticsContext.Set("basedir", nlogBaseDir);
 
 var logger = LogManager.Setup().LoadConfigurationFromAppSettings().GetCurrentClassLogger();
 logger.Info("Init configure infrastructure services");
 try
 {
-	builder.Services.AddControllersWithViews()
+	builder.Services.AddControllers()
 		.AddJsonOptions(options =>
 		{
 			options.JsonSerializerOptions.Converters.Add(
@@ -70,7 +65,6 @@ try
 	builder.Host.UseSystemd();
 
 	var app = builder.Build();
-	app.UsePathBase(basePath);
 	await app.EnsureMigrationAsync<PoolContext>();
 
 	app.UseStaticFiles();
@@ -91,7 +85,6 @@ try
 	app.MapDefaultControllerRoute();
 
 	app.MapFallbackToFile("index.html");
-
 	await app.RunAsync();
 }
 catch (Exception e)
