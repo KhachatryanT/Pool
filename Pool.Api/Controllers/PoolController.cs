@@ -4,8 +4,8 @@ using Pool.DevicesControllers.Abstractions.Services;
 
 namespace Pool.Api.Controllers;
 
-[Route("[controller]")]
-public class PoolController : Controller
+[Route("api/[controller]")]
+public class PoolController : ControllerBase
 {
 	private readonly IPoolService _poolService;
 

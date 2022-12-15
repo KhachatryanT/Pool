@@ -8,6 +8,8 @@
         <SpaProxyServerUrl>https://localhost:44432</SpaProxyServerUrl>
         <SpaProxyLaunchCommand>npm start</SpaProxyLaunchCommand>
         <ImplicitUsings>enable</ImplicitUsings>
+        <GenerateDocumentationFile>true</GenerateDocumentationFile>
+        <NoWarn>$(NoWarn);1591</NoWarn>
         <ErrorOnDuplicatePublishOutputFiles>false</ErrorOnDuplicatePublishOutputFiles>
         <ValidateExecutableReferencesMatchSelfContained>false</ValidateExecutableReferencesMatchSelfContained>
     </PropertyGroup>
@@ -29,6 +31,11 @@
 
     <ItemGroup>
         <ProjectReference Include="..\Pool.Api\Pool.Api.csproj" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <_ContentIncludedByDefault Remove="Pages\Error.cshtml" />
+      <_ContentIncludedByDefault Remove="Pages\_ViewImports.cshtml" />
     </ItemGroup>
     
     <Target Name="DeleteDebugSymbolFiles" AfterTargets="AfterPublish">

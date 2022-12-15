@@ -9,7 +9,7 @@ namespace Pool.Api.Jobs;
 
 [DisallowConcurrentExecution]
 [UsedImplicitly]
-internal sealed class MonitoringJob : IJob
+public sealed class MonitoringJob : IJob
 {
 	private readonly ILogger<MonitoringJob> _logger;
 	private readonly IPoolService _poolService;
