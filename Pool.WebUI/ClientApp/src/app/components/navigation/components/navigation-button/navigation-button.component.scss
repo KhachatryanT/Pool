@@ -1,0 +1,60 @@
+@import "helpers";
+
+:host {
+  position: relative;
+
+  .navigation-button {
+    @include reset-button;
+    @include transition-basic();
+    opacity: 1;
+
+    &:hover {
+      opacity: 0.6;
+    }
+
+    &_active {
+      pointer-events: none;
+
+      .navigation-button__icon {
+        background: #8faeb3;
+      }
+
+      .navigation-button__title {
+        font-weight: 500;
+        opacity: 1;
+      }
+    }
+
+    &__icon {
+      @include transition-basic();
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 56px;
+      height: 56px;
+      border-radius: 50%;
+      background: rgba($color-white, 0.2);
+      color: $color-white;
+
+      span {
+        &::before {
+          font-size: 32px;
+          line-height: 32px;
+        }
+      }
+    }
+
+    &__title {
+      @include font-14(regular);
+      @include transition-basic();
+      position: absolute;
+      text-transform: uppercase;
+      top: 50%;
+      transform: translateY(-50%);
+      left: 65px;
+      white-space: nowrap;
+      color: $color-white;
+      opacity: 0.5;
+    }
+  }
+}

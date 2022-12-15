@@ -1,0 +1,6 @@
+<ng-container *ngIf="devices$ | async as devices">
+  <app-device-card
+    *ngFor="let device of devices"
+    [device]="device"
+  ></app-device-card>
+</ng-container>
