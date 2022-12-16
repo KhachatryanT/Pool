@@ -4,14 +4,16 @@
       class="navigation__menu-item"
       *ngFor="let button of buttons$ | async; let index = index"
     >
-      <app-navigation-button
-        class="navigation__button"
-        [iconName]="button.iconName"
-        [title]="button.title"
-        [isActive]="button.isActive"
-        [ngStyle]="button.position"
-        (click)="onSelectMenuItem(index)"
-      ></app-navigation-button>
+      <input type="radio" class="navigation__radio sr-only" name="navigation" [id]="button.iconName + '1'" />
+      <label [for]="button.iconName">
+        <app-navigation-button
+          class="navigation__button"
+          [iconName]="button.iconName"
+          [title]="button.title"
+          [isActive]="button.isActive"
+          [ngStyle]="button.position"
+        ></app-navigation-button>
+      </label>
     </li>
   </ul>
 </nav>
