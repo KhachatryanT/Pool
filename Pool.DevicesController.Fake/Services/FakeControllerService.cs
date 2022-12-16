@@ -11,7 +11,7 @@ internal sealed class FakeControllerService : IControllerService
 	public async Task<IReadOnlyCollection<DeviceValue>> GetDevicesCurrentValuesAsync(IEnumerable<DeviceType> types,
 		CancellationToken cancellationToken)
 	{
-		await Task.Delay(1500, cancellationToken);
+		await Task.Delay(1000, cancellationToken);
 		return types.Select(type => new DeviceValue
 		{
 			Date = DateTimeOffset.Now,
