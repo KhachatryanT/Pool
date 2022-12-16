@@ -24,9 +24,6 @@
         <Content Remove="$(SpaRoot)**" />
         <None Remove="$(SpaRoot)**" />
         <None Include="$(SpaRoot)**" Exclude="$(SpaRoot)node_modules\**" />
-        <None Update="Database\Readme.txt">
-          <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-        </None>
     </ItemGroup>
 
     <ItemGroup>
@@ -34,10 +31,10 @@
     </ItemGroup>
 
     <ItemGroup>
-      <_ContentIncludedByDefault Remove="Pages\Error.cshtml" />
-      <_ContentIncludedByDefault Remove="Pages\_ViewImports.cshtml" />
+        <_ContentIncludedByDefault Remove="Pages\Error.cshtml" />
+        <_ContentIncludedByDefault Remove="Pages\_ViewImports.cshtml" />
     </ItemGroup>
-    
+
     <Target Name="DeleteDebugSymbolFiles" AfterTargets="AfterPublish">
         <ItemGroup>
             <FilesToDelete Include="$(PublishUrl)*.pdb" />
@@ -61,7 +58,7 @@
 
     <Target Name="PublishRunWebpack" AfterTargets="ComputeFilesToPublish">
         <!-- As part of publishing, ensure the JS resources are freshly built in production mode -->
-        <Exec WorkingDirectory="$(SpaRoot)" Command="npm install" />
+        <Exec WorkingDirectory="$(SpaRoot)" Command="npm ci" />
         <Exec WorkingDirectory="$(SpaRoot)" Command="npm run build -- --aot --configuration production" />
 
         <!-- Include the newly-built files in the publish output -->
