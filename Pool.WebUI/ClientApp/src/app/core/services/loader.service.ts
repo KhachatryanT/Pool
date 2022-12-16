@@ -12,7 +12,9 @@ import { LoaderComponent } from '../../ui/loader/loader.component';
 })
 export class LoaderService {
   readonly spinner$ = defer(() => {
-    this.show();
+    if (!this.isBlockLoader) {
+      this.show();
+    }
 
     return NEVER.pipe(
       finalize(() => {
@@ -20,6 +22,8 @@ export class LoaderService {
       })
     );
   }).pipe(share());
+
+  isBlockLoader = false;
 
   private overlayRef: OverlayRef | undefined;
 

@@ -15,9 +15,9 @@ import { mergeMap } from 'rxjs/operators';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class DevicesComponent implements OnInit {
-  devices$: Observable<Device[]> = this.devicesService
-    .getPools()
-    .pipe(mergeMap((pools) => this.devicesService.getDevices(pools[0].alias)));
+  devices$: Observable<Device[]> = this.devicesService.getPools().pipe(
+    mergeMap((pools) => this.devicesService.getDevices(pools[0].alias)),
+  );
 
   constructor(private readonly devicesService: DevicesService) {}
 

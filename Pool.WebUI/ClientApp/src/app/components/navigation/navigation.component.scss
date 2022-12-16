@@ -1,8 +1,8 @@
+@use "sass:math";
 @import "helpers";
 
-
 $numberOfItems: 5;
-$deg: 360deg / $numberOfItems;
+$deg: math.div(360deg, $numberOfItems);
 $m: 1;
 
 $offset: 100px;
@@ -20,7 +20,6 @@ $offset: 100px;
   $navigation: &;
 
   &__radio {
-
   }
 
   &__menu {
