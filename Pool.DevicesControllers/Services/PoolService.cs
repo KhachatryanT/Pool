@@ -26,6 +26,17 @@ internal sealed class PoolService : IPoolService
 	public async Task<IReadOnlyCollection<PoolInfo>> GetPoolsAsync(CancellationToken calCancellationToken)
 #pragma warning restore CS1998
 	{
-		return _poolsSettings.Value.Pools.Select(x => new PoolInfo(x.Name, x.Alias)).ToArray();
+		return _poolsSettings.Value.Pools
+			.Select(x => new PoolInfo(x.Name, x.Alias, x.Controllers.Select(MapToControllerInfo).ToArray()))
+			.ToArray();
+	}
+
+	private static ControllerInfo MapToControllerInfo(ControllerSettings controllerSettings)
+	{
+		var devices = controllerSettings.Devices
+			.Where(x => x.Enabled)
+			.Select(x => x.Type)
+			.ToArray();
+		return new ControllerInfo(controllerSettings.Code, devices);
 	}
 }

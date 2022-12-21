@@ -15,7 +15,7 @@ public class PoolController : ControllerBase
 	}
 
 	/// <summary>
-	/// Получить все бассейны
+	/// Получить все бассейны и конфигурации
 	/// </summary>
 	[HttpGet]
 	public Task<IReadOnlyCollection<PoolInfo>> GetPools()
