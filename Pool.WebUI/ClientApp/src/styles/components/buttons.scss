@@ -1,0 +1,52 @@
+@mixin icon-32 {
+  &::before {
+    font-size: 32px !important;
+    line-height: 32px !important;
+  }
+}
+
+.button-icon {
+  @include reset-button();
+  @include transition-basic();
+  color: $color-white;
+  display: grid;
+  place-content: center;
+
+  &:hover {
+    opacity: 0.6;
+  }
+
+  &_32 {
+    span {
+      @include icon-32;
+    }
+  }
+}
+
+.icon-32 {
+  @include icon-32;
+}
+
+.button-outline {
+  @include reset-button();
+  @include font-16(regular);
+  @include transition-basic(opacity);
+  display: grid;
+  place-items: center;
+  color: $color-white;
+  border: none;
+  border-radius: 7px;
+  width: 68px;
+  height: 48px;
+  opacity: 1;
+
+  &:hover {
+    opacity: 0.7;
+    border: 1px solid $color-blue-light-1;
+  }
+
+  &_active {
+    font-weight: 600;
+    border: 2px solid $color-blue-light-1;
+  }
+}

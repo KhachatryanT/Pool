@@ -9,6 +9,8 @@ import localeRu from '@angular/common/locales/ru';
 import { HttpClientModule } from '@angular/common/http';
 import { CoreModule } from './core/core.module';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { NgChartsModule } from 'ng2-charts';
 
 registerLocaleData(localeRu, 'ru');
 
@@ -20,6 +22,8 @@ registerLocaleData(localeRu, 'ru');
     HttpClientModule,
     CoreModule,
     MatProgressSpinnerModule,
+    BrowserAnimationsModule,
+    NgChartsModule,
   ],
   providers: [{ provide: LOCALE_ID, useValue: 'ru' }],
   bootstrap: [AppComponent],

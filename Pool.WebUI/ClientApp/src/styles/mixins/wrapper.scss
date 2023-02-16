@@ -1,7 +1,12 @@
 @mixin wrapper() {
   display: flex;
   border-radius: 20px;
-  background: rgba($color-dark-blue, 0.6);
-  height: 210px;
-  width: 190px;
+  background: rgba($color-black, 0.1);
+  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+@mixin wrapper-11() {
+  display: flex;
+  border-radius: 11px;
+  background: rgba($color-black, 0.12);
 }

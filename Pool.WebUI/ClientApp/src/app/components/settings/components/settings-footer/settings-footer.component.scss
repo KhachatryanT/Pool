@@ -1,0 +1,43 @@
+@import "helpers";
+
+:host {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  margin-top: auto;
+  padding: 16px 100px 19px;
+  background: rgba($color-black, 0.12);
+
+  .settings-footer-item {
+    @include reset-button();
+    @include transition-basic();
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    opacity: 0.6;
+
+    &:hover {
+      opacity: 0.9;
+    }
+
+    &_active {
+      opacity: 1;
+    }
+
+    &__icon {
+      color: $color-white;
+      margin-bottom: 8px;
+
+      &::before {
+        font-size: 32px;
+        line-height: 32px;
+      }
+    }
+
+    &__name {
+      @include font-14(medium, $font-montserrat);
+      text-transform: uppercase;
+      color: $color-white;
+    }
+  }
+}

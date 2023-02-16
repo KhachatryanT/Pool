@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { DeviceCardComponent } from './device-card/device-card.component';
 import { Device } from '../../interfaces/devices/device.interface';
@@ -14,12 +14,10 @@ import { mergeMap } from 'rxjs/operators';
   styleUrls: ['./devices.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class DevicesComponent implements OnInit {
-  devices$: Observable<Device[]> = this.devicesService.getPools().pipe(
-    mergeMap((pools) => this.devicesService.getDevices(pools[0].alias)),
-  );
+export class DevicesComponent {
+  devices$: Observable<Device[]> = this.devicesService
+    .getPools()
+    .pipe(mergeMap((pools) => this.devicesService.getDevices(pools[0].alias)));
 
   constructor(private readonly devicesService: DevicesService) {}
-
-  ngOnInit(): void {}
 }

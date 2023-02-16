@@ -1,0 +1,31 @@
+<app-background></app-background>
+<app-header title="Настройки" (clickBack)="onClickBack()"></app-header>
+
+<div class="settings">
+  <nav class="settings__main-nav settings-main-nav">
+    <ul>
+      <li class="settings-main-nav__list-item">
+        <button class="settings-main-nav__list-item-button settings-main-nav__list-item-button_active">
+          <span class="mdi mdi-lock-outline icon-32"></span>
+          <span class="settings-main-nav__list-item-text">Управление</span>
+        </button>
+      </li>
+      <li class="settings-main-nav__list-item">
+        <button class="settings-main-nav__list-item-button">
+          <span class="mdi mdi-cog-outline icon-32"></span>
+          <span class="settings-main-nav__list-item-text">Настройки</span>
+        </button>
+      </li>
+      <li class="settings-main-nav__list-item">
+        <button class="settings-main-nav__list-item-button">
+          <span class="mdi mdi-information-outline icon-32"></span>
+          <span class="settings-main-nav__list-item-text">Информация</span>
+        </button>
+      </li>
+    </ul>
+  </nav>
+  <div class="settings__inner-nav">
+    <img src="assets/images/inground-pool.jpeg" alt="pool photo">
+  </div>
+</div>
+<app-settings-footer></app-settings-footer>

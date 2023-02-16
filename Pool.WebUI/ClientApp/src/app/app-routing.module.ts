@@ -25,6 +25,40 @@ const dashboardRoutes: Routes = [
   },
 ];
 
+const historyRoutes: Routes = [
+  {
+    path: '',
+    children: [
+      {
+        path: '',
+        pathMatch: 'full',
+        redirectTo: 'main',
+      },
+      {
+        path: 'main',
+        loadComponent: () =>
+          import('./components/history/history.component').then(
+            (m) => m.HistoryComponent
+          ),
+      },
+      {
+        path: 'chart',
+        loadComponent: () =>
+          import('./components/history/components/chart-page/chart-page.component').then(
+            (m) => m.ChartPageComponent
+          ),
+      },
+      {
+        path: 'event-log',
+        loadComponent: () =>
+          import('./components/history/components/event-log/event-log.component').then(
+            (m) => m.EventLogComponent
+          ),
+      },
+    ],
+  },
+];
+
 const routes: Routes = [
   {
     path: '',
@@ -34,6 +68,17 @@ const routes: Routes = [
   {
     path: 'dashboard',
     loadChildren: () => dashboardRoutes,
+  },
+  {
+    path: 'settings',
+    loadComponent: () =>
+      import('./components/settings/settings.component').then(
+        (m) => m.SettingsComponent
+      ),
+  },
+  {
+    path: 'history',
+    loadChildren: () => historyRoutes,
   },
 ];
 

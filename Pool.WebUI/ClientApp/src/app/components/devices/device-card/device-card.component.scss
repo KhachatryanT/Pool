@@ -1,11 +1,10 @@
 @import "src/styles/helpers";
-@import "src/styles/mixins";
 
 :host {
   @include wrapper();
-  height: 210px;
-  width: 190px;
-  padding: 36px 20px;
+  height: 270px;
+  width: 226px;
+  padding: 70px 36px 36px;
   overflow: hidden;
 }
 
@@ -15,7 +14,7 @@
 
   &__name-wrapper {
     display: flex;
-    align-items: flex-end;
+    align-items: baseline;
   }
 
   &__name {
@@ -30,8 +29,8 @@
   }
 
   &__value {
-    @include font-64(regular, $font-rubik);
-    margin-top: 20px;
+    @include font-72(regular, $font-rubik);
+    margin-top: 32px;
 
     &_blue {
       color: $color-blue-light;

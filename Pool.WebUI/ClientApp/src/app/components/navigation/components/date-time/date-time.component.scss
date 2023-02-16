@@ -2,11 +2,24 @@
 
 :host {
   display: block;
-  width: 200px;
-  height: 200px;
+  width: 240px;
+  height: 240px;
   border-radius: 50%;
-  padding: 30px 0;
+  padding: 55px 0 39px;
   background: rgba($color-white, 0.2);
+  position: relative;
+
+  &::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    border-radius: 50%;
+    box-shadow: 0 4px 5px rgba(0, 0, 0, 0.63);
+    opacity: 0.26;
+  }
 
   .date-time {
     display: flex;
@@ -19,7 +32,7 @@
       color: $color-white;
 
       &_time {
-        @include font-54(regular, $font-rubik);
+        @include font-56(regular, $font-rubik);
         margin: 11px 0;
       }
     }

@@ -2,18 +2,14 @@
   <ul class="navigation__menu">
     <li
       class="navigation__menu-item"
-      *ngFor="let button of buttons$ | async; let index = index"
+      id="menu-item"
+      *ngFor="let button of buttons; let index = index"
     >
-      <input type="radio" class="navigation__radio sr-only" name="navigation" [id]="button.iconName + '1'" />
-      <label [for]="button.iconName">
-        <app-navigation-button
-          class="navigation__button"
-          [iconName]="button.iconName"
-          [title]="button.title"
-          [isActive]="button.isActive"
-          [ngStyle]="button.position"
-        ></app-navigation-button>
-      </label>
+      <app-navigation-button
+        class="navigation__button"
+        [id]="button.iconName"
+        [button]="button"
+      ></app-navigation-button>
     </li>
   </ul>
 </nav>

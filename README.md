@@ -1,2 +1,1 @@
 # Pool
-Swimming pool

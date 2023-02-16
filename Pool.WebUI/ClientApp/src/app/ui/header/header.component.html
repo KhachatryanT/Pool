@@ -1,0 +1,21 @@
+<app-logo class="header-logo"></app-logo>
+<button class="header-button button-icon button-icon_32" (click)="onClickBack()">
+  <span class="mdi mdi-arrow-left"></span>
+</button>
+<h1 class="header-title">{{ title }}</h1>
+<div class="header-button-wrapper">
+  <button
+    class="header-button button-icon button-icon_32"
+    *ngIf="isShowInfoButton"
+    (click)="onClickInfo()"
+  >
+    <span class="mdi mdi-help-circle-outline"></span>
+  </button>
+  <button
+    class="header-button button-icon button-icon_32"
+    *ngIf="isShowUserProfileButton"
+  >
+    <span class="mdi mdi-account"></span>
+  </button>
+</div>
+

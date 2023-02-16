@@ -1,0 +1,13 @@
+<p class="charts__info">Данные за последнюю неделю</p>
+<div class="charts__wrapper" *ngIf="data$ | async as data">
+  <ng-container *ngFor="let chartData of data">
+    <app-chart
+      class="charts__chart-item"
+      [labels]="chartData.labels"
+      [data]="chartData.data"
+      [width]="width"
+      [height]="height"
+      [title]="chartData.title"
+    ></app-chart>
+  </ng-container>
+</div>

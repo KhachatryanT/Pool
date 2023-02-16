@@ -11,7 +11,7 @@ export class DevicesApiService {
   constructor(private readonly httpClient: HttpClient) {}
 
   getDevices(poolAlias: string): Observable<DeviceResponse> {
-    return this.httpClient.get<DeviceResponse>(`api/devices/${poolAlias}`);
+    return this.httpClient.get<DeviceResponse>(`api/pool/${poolAlias}/devices/current`);
   }
 
   getPools(): Observable<Pool[]> {

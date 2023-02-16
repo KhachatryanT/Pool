@@ -1,8 +1,14 @@
-<button class="navigation-button" [class.navigation-button_active]="isActive">
+<button
+  #bl
+  class="navigation-button"
+  [routerLink]="button.route"
+  routerLinkActive="navigation-button_active"
+  [routerLinkActiveOptions]="{ exact: true }"
+>
   <div class="navigation-button__icon">
-    <span class="navigation-button-icon__icon mdi {{ iconName }}"></span>
+    <span class="navigation-button-icon__icon mdi {{ button.iconName }}"></span>
   </div>
   <p class="navigation-button__title">
-    {{ title }}
+    {{ button.title }}
   </p>
 </button>

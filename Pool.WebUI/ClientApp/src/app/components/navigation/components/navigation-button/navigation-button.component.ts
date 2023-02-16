@@ -1,22 +1,16 @@
-import { ChangeDetectionStrategy, Component, Input, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { RouterLink, RouterLinkActive } from '@angular/router';
+import { NavigateButton } from '../../services/navigation.service';
 
 @Component({
   selector: 'app-navigation-button',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, RouterLink, RouterLinkActive],
   templateUrl: './navigation-button.component.html',
   styleUrls: ['./navigation-button.component.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class NavigationButtonComponent implements OnInit {
-  @Input() iconName!: string;
-  @Input() title!: string;
-  @Input() isActive = false;
-
-  constructor() { }
-
-  ngOnInit(): void {
-  }
-
+export class NavigationButtonComponent {
+  @Input() button!: NavigateButton;
 }

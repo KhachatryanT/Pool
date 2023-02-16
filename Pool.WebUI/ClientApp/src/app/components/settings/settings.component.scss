@@ -1,0 +1,66 @@
+@import "helpers";
+
+:host {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  width: 100%;
+
+  .settings {
+    display: flex;
+    height: 100%;
+    padding: 30px;
+
+    &__main-nav {
+    }
+
+    &__inner-nav {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+
+      img {
+        width: 300px;
+      }
+    }
+  }
+
+  .settings-main-nav {
+
+    ul {
+      margin: 0;
+      padding: 0;
+    }
+
+    li {
+      list-style-type: none;
+    }
+
+    &__list-item:not(:first-of-type) {
+      margin-top: 24px;
+    }
+
+    &__list-item-button {
+      @include reset-button();
+      @include transition-basic();
+      display: flex;
+      align-items: center;
+      color: $color-white;
+      opacity: 0.6;
+
+      &:hover {
+        opacity: 0.8;
+      }
+
+      &_active {
+        opacity: 1;
+      }
+    }
+
+    &__list-item-text {
+      @include font-20(medium, $font-montserrat);
+      margin-left: 24px;
+    }
+  }
+}

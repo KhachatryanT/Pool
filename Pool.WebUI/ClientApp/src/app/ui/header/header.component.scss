@@ -1,0 +1,33 @@
+@import "helpers";
+
+:host {
+  display: flex;
+  align-items: center;
+  background: rgba($color-black, 0.12);
+  position: relative;
+
+  .header-title {
+    @include font-18(regular, $font-montserrat);
+    text-transform: uppercase;
+    color: $color-white;
+  }
+
+  .header-button-wrapper {
+    display: flex;
+    align-items: center;
+    margin-left: auto;
+  }
+
+  .header-button {
+    height: 80px;
+    width: 72px;
+  }
+
+  .header-logo {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 157px;
+  }
+}

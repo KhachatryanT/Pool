@@ -1,0 +1,14 @@
+@import "helpers";
+
+:host {
+  display: flex;
+  align-items: center;
+}
+
+.outline-button-item {
+  input:checked + span {
+    font-weight: 600;
+    border: 2px solid $color-blue-light-1;
+    pointer-events: none;
+  }
+}

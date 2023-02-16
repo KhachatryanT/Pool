@@ -12,11 +12,25 @@ $font-thicknesses: (
   thin: 200
 );
 
+@mixin font-72($font-weight, $font-family: $font-montserrat) {
+  font-size: 72px;
+  line-height: math.div(85, 72);
+  font-family: $font-family;
 
+  @include font-weight-by-map($font-weight);
+}
 
 @mixin font-64($font-weight, $font-family: $font-montserrat) {
   font-size: 64px;
   line-height: math.div(76, 64);
+  font-family: $font-family;
+
+  @include font-weight-by-map($font-weight);
+}
+
+@mixin font-56($font-weight, $font-family: $font-montserrat) {
+  font-size: 56px;
+  line-height: math.div(66, 56);
   font-family: $font-family;
 
   @include font-weight-by-map($font-weight);

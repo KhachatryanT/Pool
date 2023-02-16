@@ -27,7 +27,7 @@
     </ItemGroup>
 
     <ItemGroup>
-        <ProjectReference Include="..\Pool.Api\Pool.Api.csproj" />
+        <ProjectReference Include="..\Pool.Api.Hosting\Pool.Api.Hosting.csproj" />
     </ItemGroup>
 
     <ItemGroup>

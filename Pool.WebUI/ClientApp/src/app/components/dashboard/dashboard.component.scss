@@ -2,8 +2,6 @@
 
 :host {
   display: flex;
-  background: $background-gradient;
-  backdrop-filter: blur(50px);
   height: 100vh;
   overflow: hidden;
   padding: 24px;
@@ -14,8 +12,6 @@
   flex: 1 1 auto;
   justify-content: space-between;
   max-height: 600px;
-  max-width: 1024px;
-  margin: 0 auto;
 
   &__navigation {
     width: 50%;
@@ -30,8 +26,5 @@
   display: flex;
   align-items: center;
   position: relative;
-  left: -70px;
-
-  &__navigation {
-  }
+  left: -80px;
 }

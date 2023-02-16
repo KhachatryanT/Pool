@@ -1,0 +1,49 @@
+<app-background></app-background>
+<app-header
+  title="Журнал событий и аварий"
+  (clickBack)="onClickBack()"
+></app-header>
+<div class="event-log">
+  <table class="event-log__table event-log-table">
+    <thead>
+      <tr>
+        <th>Дата</th>
+        <th>Прибор</th>
+        <th>Событие</th>
+        <th>Значение</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>12.11 12:12</td>
+        <td>Насос</td>
+        <td>вкл</td>
+        <td>
+          <span
+            class="mdi mdi-arrow-up-thin event-log-table__icon-arrow"
+          ></span>
+        </td>
+      </tr>
+      <tr>
+        <td>12.11 12:12</td>
+        <td>Насос</td>
+        <td>вкл</td>
+        <td>
+          <span
+            class="mdi mdi-arrow-up-thin event-log-table__icon-arrow"
+          ></span>
+        </td>
+      </tr>
+      <tr>
+        <td>12.11 12:12</td>
+        <td>Что-то</td>
+        <td>другое</td>
+        <td>
+          <span
+            class="mdi mdi-arrow-up-thin event-log-table__icon-arrow"
+          ></span>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

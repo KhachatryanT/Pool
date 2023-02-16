@@ -1,0 +1,16 @@
+@import "helpers";
+
+:host {
+  display: flex;
+  background: rgba($color-black, 0.12);
+  padding: 24px 24px 10px;
+  border-radius: 11px;
+  height: fit-content;
+  position: relative;
+
+  .chart-name {
+    position: absolute;
+    @include font-24(regular, $font-montserrat);
+    color: $color-white;
+  }
+}

@@ -1,0 +1,28 @@
+@import "helpers";
+
+:host {
+  display: flex;
+  flex-direction: column;
+  padding: 19px 30px 24px;
+  overflow: hidden;
+
+  .charts {
+    &__info {
+      @include font-14(regular, $font-montserrat);
+      color: $color-white;
+      margin-left: auto;
+      margin-bottom: 20px;
+    }
+
+    &__wrapper {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      grid-column-gap: 12px;
+      grid-row-gap: 12px;
+    }
+
+    &__chart-item {
+      width: fit-content;
+    }
+  }
+}

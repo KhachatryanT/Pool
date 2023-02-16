@@ -1,0 +1,14 @@
+@import "helpers";
+
+:host {
+  display: block;
+
+  .logo {
+    width: 100%;
+  }
+
+  .logo-button {
+    @include reset-button();
+    width: 100%;
+  }
+}

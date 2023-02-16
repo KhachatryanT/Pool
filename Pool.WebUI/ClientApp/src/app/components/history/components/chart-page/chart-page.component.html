@@ -1,0 +1,18 @@
+<app-background></app-background>
+<app-header title="Показатели" (clickBack)="onClickBack()"></app-header>
+<div class="chart-page">
+  <div class="chart-page__control-panel control-panel">
+    <app-outline-buttons-group
+      [buttons]="periodButtons"
+      [formControl]="periodSelectControl"
+    ></app-outline-buttons-group>
+  </div>
+  <div class="chart-page__chart" *ngIf="data$ | async as data">
+    <app-chart
+      [width]="width"
+      [height]="height"
+      [data]="data.data"
+      [labels]="data.labels"
+    ></app-chart>
+  </div>
+</div>

@@ -1,0 +1,12 @@
+<ng-container *ngFor="let button of buttons">
+  <label class="outline-button-item">
+    <input
+      name="outline-buttons"
+      type="radio"
+      class="sr-only"
+      [value]="button"
+      [formControl]="formControl"
+    />
+    <span class="button-outline">{{ button }}</span>
+  </label>
+</ng-container>

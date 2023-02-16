@@ -1,0 +1,11 @@
+@import "helpers";
+
+body {
+  background-color: $color-background;
+}
+
+.container {
+  max-width: 1024px;
+  margin: 0 auto;
+  width: 100%;
+}

@@ -1,0 +1,11 @@
+<app-background></app-background>
+<app-header title="История" (clickBack)="onClickBack()"></app-header>
+  <div class="history">
+    <a class="history__widget" routerLink="/history/chart">
+      <span class="history__widget-name">Показатели</span>
+      <img class="history__widget-img" src="assets/svg/graph.svg" alt="graph">
+    </a>
+    <a class="history__widget" routerLink="/history/event-log">
+      <span class="history__widget-name">Журнал событий и аварий</span>
+    </a>
+  </div>

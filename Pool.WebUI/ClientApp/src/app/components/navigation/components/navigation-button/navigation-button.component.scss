@@ -3,26 +3,31 @@
 :host {
   position: relative;
 
+
   .navigation-button {
     @include reset-button;
     @include transition-basic();
-    opacity: 1;
 
-    &:hover {
-      opacity: 0.6;
+    &:active {
+      box-shadow: none;
+      outline: none;
+
+    }
+
+    &:hover,
+    &:active {
+
+      .navigation-button__icon {
+        background: rgba($color-white, 0.15);
+      }
+
+      .navigation-button__title {
+        opacity: 0.7;
+      }
     }
 
     &_active {
       pointer-events: none;
-
-      .navigation-button__icon {
-        background: #8faeb3;
-      }
-
-      .navigation-button__title {
-        font-weight: 500;
-        opacity: 1;
-      }
     }
 
     &__icon {
@@ -30,31 +35,32 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      width: 56px;
-      height: 56px;
+      width: 100px;
+      height: 100px;
       border-radius: 50%;
-      background: rgba($color-white, 0.2);
+      background: rgba($color-white, 0.25);
       color: $color-white;
+      box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+      backdrop-filter: blur(20px);
 
       span {
         &::before {
-          font-size: 32px;
-          line-height: 32px;
+          font-size: 48px;
+          line-height: 48px;
         }
       }
     }
 
     &__title {
-      @include font-14(regular);
+      @include font-16(regular);
       @include transition-basic();
       position: absolute;
       text-transform: uppercase;
       top: 50%;
       transform: translateY(-50%);
-      left: 65px;
+      left: 110px;
       white-space: nowrap;
       color: $color-white;
-      opacity: 0.5;
     }
   }
 }

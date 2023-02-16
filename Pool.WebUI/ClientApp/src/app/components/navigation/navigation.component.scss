@@ -1,55 +1,53 @@
 @use "sass:math";
 @import "helpers";
 
-$numberOfItems: 5;
-$deg: math.div(360deg, $numberOfItems);
-$m: 1;
-
-$offset: 100px;
-
 :host {
   display: flex;
   position: relative;
-  width: 307px;
-  height: 307px;
-  border-radius: 50%;
-  background: rgba($color-white, 0.2);
 }
 
 .navigation {
   $navigation: &;
+  width: 393px;
+  height: 393px;
+  border-radius: 50%;
+  background: rgba($color-white, 0.15);
 
-  &__radio {
-  }
+  #menu-item {
+    // history
+    #mdi-history {
+      top: -50px;
+      left: 150px;
+    }
 
-  &__menu {
-    //position: absolute;
-    //top: 0;
-    //bottom: 0;
-    //left: 0;
-    //right: 0;
-    //border-radius: 50%;
-    //margin: 0;
-    //border: 125px solid transparent;
+    // accident log
+    #mdi-alert-outline {
+      top: 25px;
+      right: -5px;
+    }
+
+    // water exchange
+    #mdi-water {
+      top: 150px;
+      right: -50px;
+    }
+
+    // attractions
+    #mdi-ferris-wheel {
+      bottom: 25px;
+      right: -5px;
+    }
+
+    // settings
+    #mdi-cog {
+      bottom: -50px;
+      left: 150px;
+    }
   }
 
   &__menu-item {
     @include transition-basic();
-    //position: absolute;
     list-style: none;
-    //top: -($offset);
-    //left: -($offset);
-    //transform-origin: 130px 130px;
-
-    //@for $m from 1 through $numberOfItems {
-    //  &:nth-child(#{$m}) {
-    //    transform: rotate(45 + $deg * $m);
-    //
-    //    #{$navigation}__button {
-    //      //transform: rotate(-$deg * $m + 720 - 45);
-    //    }
-    //  }
-    //}
   }
 
   &__button {
